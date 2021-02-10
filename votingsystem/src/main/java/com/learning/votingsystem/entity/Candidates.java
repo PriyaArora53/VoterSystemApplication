@@ -5,19 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="citizens")
+@Table(name="candidates")
 @Entity
-public class Citizen {
-
-    public Citizen() {
+public class Candidates {
+    public Candidates() {
     }
 
     @Id
     @Column(name = "id")
     private long id;
-
-    @Column(name = "citizen_name")
-    private String name;
 
     public long getId() {
         return id;
@@ -27,6 +23,9 @@ public class Citizen {
         this.id = id;
     }
 
+    @Column(name = "candidate_name")
+    private String name;
+
     public String getName() {
         return name;
     }
@@ -35,20 +34,20 @@ public class Citizen {
         this.name = name;
     }
 
-    @Column(name = "has_voted")
-    private Boolean hasVoted;
+    @Column(name = "numberOfVotes")
+    private Integer numberOfVotes;
 
-    public Boolean getHasVoted() {
-        return hasVoted;
+    public Integer getNumberOfVotes() {
+        return numberOfVotes;
     }
 
-    public void setHasVoted(Boolean hasVoted) {
-        this.hasVoted = hasVoted;
+    public void setNumberOfVotes(Integer numberOfVotes) {
+        this.numberOfVotes = numberOfVotes;
     }
 
-    public Citizen(long id, String name, Boolean hasVoted) {
+    public Candidates(long id, String name, Integer numberOfVotes) {
         this.id = id;
         this.name = name;
-        this.hasVoted = hasVoted;
+        this.numberOfVotes = numberOfVotes;
     }
 }
